@@ -72,7 +72,7 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.append(renderer.domElement);
 
-      const ambientLight = new THREE.AmbientLight('#ff5900');
+      const ambientLight = new THREE.AmbientLight('#444');
       const pointLight = new THREE.PointLight('#fff', 2, 800);
       pointLight.position.set(200, 200, 200);
 
@@ -137,8 +137,8 @@
     let inc = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      object.rotation.y = Math.sin((inc += 0.003)) * 0.5;
-      fontGroup.rotation.y = Math.sin((inc += 0.003)) * 0.5;
+      object.rotation.y = Math.sin((inc += 0.002)) * 0.3;
+      fontGroup.rotation.y = Math.sin((inc += 0.002)) * 0.3;
       renderer.render(scene, camera);
     };
 
