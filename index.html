@@ -6,7 +6,7 @@
     <title>Intitulé de ma page</title>
   </head>
 
-  <body>
+  <body style="background-color: black">
     <div id="app"></div>
   </body>
   <script type="module">
@@ -16,7 +16,7 @@
 
     // svg.js
     const material = new THREE.MeshStandardMaterial({
-      color: '#ff5900',
+      color: '#fff',
       roughness: 0,
       metalness: 0,
     });
@@ -72,8 +72,8 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.append(renderer.domElement);
 
-      const ambientLight = new THREE.AmbientLight('#888888');
-      const pointLight = new THREE.PointLight('#ffffff', 2, 800);
+      const ambientLight = new THREE.AmbientLight('#ff5900');
+      const pointLight = new THREE.PointLight('#fff', 2, 800);
       pointLight.position.set(200, 200, 200);
 
       scene.add(ambientLight, pointLight);
@@ -137,8 +137,8 @@
     let inc = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      object.rotation.y = Math.sin((inc += 0.003)) * 0.7;
-      fontGroup.rotation.y = Math.sin((inc += 0.003)) * 0.7;
+      object.rotation.y = Math.sin((inc += 0.003)) * 0.5;
+      fontGroup.rotation.y = Math.sin((inc += 0.003)) * 0.5;
       renderer.render(scene, camera);
     };
 
