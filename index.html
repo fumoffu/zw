@@ -80,18 +80,9 @@
 
       camera.position.x = 0;
       camera.position.y = -25;
-      camera.position.z = 300;
+      camera.position.z = 400;
 
-      let inc = 0;
-      const animate = () => {
-        requestAnimationFrame(animate);
-        camera.rotation.y = Math.sin((inc += 0.01)) * 0.15;
-        renderer.render(scene, camera);
-      };
-
-      animate();
-
-      return scene;
+      return { renderer, scene, camera };
     };
     // svg.js
     const svg = `<svg
@@ -122,7 +113,7 @@
     // main.js
     const defaultExtrusion = 10;
     const app = document.querySelector('#app');
-    const scene = setupScene(app);
+    const { renderer, scene, camera } = setupScene(app);
     const { object } = renderSVG(defaultExtrusion, svg);
 
     const loader = new THREE.FontLoader();
@@ -142,6 +133,16 @@
 
     setInterval(refresh, 10000);
     refresh();
+
+    let inc = 0;
+    const animate = () => {
+      requestAnimationFrame(animate);
+      object.rotation.y = Math.sin((inc += 0.003)) * 0.7;
+      fontGroup.rotation.y = Math.sin((inc += 0.003)) * 0.7;
+      renderer.render(scene, camera);
+    };
+
+    animate();
 
     async function refresh() {
       const font = await fontPromise;
