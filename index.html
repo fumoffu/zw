@@ -131,14 +131,14 @@
     scene.add(fontGroup);
     scene.add(object);
 
-    setInterval(refresh, 10000);
+    setInterval(refresh, 60000);
     refresh();
 
     let inc = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      object.rotation.y = Math.sin((inc += 0.002)) * 0.3;
-      fontGroup.rotation.y = Math.sin((inc += 0.002)) * 0.3;
+      object.rotation.y = Math.sin((inc += 0.002)) * 0.1;
+      fontGroup.rotation.y = Math.sin((inc += 0.002)) * 0.1;
       renderer.render(scene, camera);
     };
 
